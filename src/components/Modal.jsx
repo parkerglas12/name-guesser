@@ -30,7 +30,7 @@ function Modal({ score, display, type, closeModal }) {
               <>
                 <p className="modal-heading text-lg">FINAL SCORE: {score}</p>
                 <button
-                  className="modal-btn outline-none text-med"
+                  className="modal-btn outline-none text-med black"
                   onClick={closeModal}
                 >
                   PLAY AGAIN!

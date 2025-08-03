@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { getGameContents, getInfoMap } from "./util/GameData.js";
 import { getDiffLevel } from "./util/Helpers.js";
+import ReactGA from "react-ga4";
+import usePageTracking from "./util/UsePageTracking.js";
 
 import Home from "./pages/Home.jsx";
 import HowTo from "./pages/HowTo.jsx";
@@ -25,6 +27,15 @@ function App() {
   const [modal, setModal] = useState(true);
   const [modalType, setModalType] = useState("welcome");
   const location = useLocation();
+
+  // ANALYTICS
+  const isProd = window.location.hostname !== "localhost";
+  useEffect(() => {
+    if (isProd) {
+      ReactGA.initialize("G-F1M68Q3FCK");
+    }
+  }, []);
+  usePageTracking();
 
   useEffect(() => {
     if (gameActive) {
@@ -114,7 +125,7 @@ function App() {
 
   return (
     <>
-      <Navbar main={location.pathname === "/" ? true : false} />
+      <Navbar main={location.pathname === "/"} />
       <Modal
         score={score}
         display={modal}

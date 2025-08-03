@@ -12,7 +12,7 @@ function Home({
   handleGameActive,
 }) {
   return (
-    <div className="game-container flex-center">
+    <div className="game-container flex-center black">
       <Photos url1={contents.imgOne} url2={contents.imgTwo} />
       <UserInput
         onChange={handleChange}

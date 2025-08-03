@@ -17,6 +17,13 @@
   font-weight: 600;
 }
 
+input,
+button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
 /* UTILITIES */
 .outline-none {
   border: none;
@@ -90,9 +97,8 @@
 /* MAIN CONTAINERS */
 .game-container {
   flex-direction: column;
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--white);
-  color: var(--black);
 }
 
 .game-container a.linkedin,
@@ -242,8 +248,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   z-index: 1001;
 }
 

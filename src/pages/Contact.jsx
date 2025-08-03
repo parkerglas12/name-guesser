@@ -2,7 +2,12 @@ function Contact() {
   return (
     <div className="grid-container contact-container">
       <h1 className="heading text-center">CONTACT ME</h1>
-      <form action="#" className="grid-item">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        className="grid-item"
+      >
         <div className="contact-content">
           <h2 className="text-lg">What's On Your Mind?</h2>
           <label className="contact-label text-med" htmlFor="name">
@@ -39,7 +44,9 @@ function Contact() {
             autoComplete="off"
             required
           />
-          <button className="submit-btn outline-none text-med">Submit</button>
+          <button className="submit-btn outline-none text-med black">
+            Submit
+          </button>
         </div>
       </form>
       <div className="grid-item about">

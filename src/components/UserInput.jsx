@@ -28,7 +28,7 @@ function UserInput({
         </>
       ) : (
         <button
-          className="next-btn outline-none text-lg"
+          className="next-btn outline-none text-lg black"
           onClick={handleGameActive}
         >
           Next Question
