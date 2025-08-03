@@ -6,8 +6,14 @@ function Contact() {
         name="contact"
         method="POST"
         data-netlify="true"
+        netlify
+        data-netlify-honeypot="bot-field"
         className="grid-item"
       >
+        <input type="hidden" name="form-name" value="contact" />
+        <p style={{ display: "none" }}>
+          Don’t fill this out if you’re human: <input name="bot-field" />
+        </p>
         <div className="contact-content">
           <h2 className="text-lg">What's On Your Mind?</h2>
           <label className="contact-label text-med" htmlFor="name">
