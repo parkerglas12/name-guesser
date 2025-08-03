@@ -6,8 +6,8 @@ function Contact() {
         name="contact"
         method="POST"
         data-netlify="true"
-        netlify
         data-netlify-honeypot="bot-field"
+        action="/thankyou.html"
         className="grid-item"
       >
         <input type="hidden" name="form-name" value="contact" />
