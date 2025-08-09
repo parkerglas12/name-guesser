@@ -113,7 +113,7 @@ button {
   margin-bottom: 3rem;
 }
 
-.images-container .image {
+.image {
   width: clamp(150px, 40vw, 250px);
   margin: 0 3vw;
   border-radius: 1.5rem;
@@ -129,6 +129,7 @@ button {
 .input-container .main-input {
   padding-bottom: 0.25rem;
   border-bottom: 0.2rem solid var(--black);
+  border-radius: 0;
   caret-color: var(--black);
 }
 
@@ -137,17 +138,31 @@ button {
   margin-top: 0.25rem;
 }
 
-.input-container .next-btn {
+.next-btn {
   padding: 1rem 1.25rem;
   background-color: var(--gold);
   border-radius: 0.5rem;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.input-container .next-btn:hover {
+.next-btn:hover {
   cursor: pointer;
   transform: scale(1.03);
   box-shadow: 0 0 1.25rem rgba(242, 196, 0, 0.9);
+}
+
+/* EXAMPLE CONTAINER */
+.example-container {
+  flex-direction: column;
+  width: clamp(300px, 75vw, 700px);
+  margin: 0 auto;
+  padding: 4vh 0;
+}
+
+.example-container .images-container,
+.example-container .example-heading,
+.example-container .text-med {
+  margin-bottom: 1rem;
 }
 
 /* HOW TO & STATS CONTAINERS */

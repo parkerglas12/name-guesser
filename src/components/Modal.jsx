@@ -22,13 +22,13 @@ function Modal({ score, display, type, closeModal }) {
                 <span className="close text-lg" onClick={closeModal}>
                   &times;
                 </span>
-                <h2 className="modal-heading heading">
+                <h2 className="heading">
                   Can you guess the famous person from just two photos?
                 </h2>
               </>
             ) : type === "end" ? (
               <>
-                <p className="modal-heading text-lg">FINAL SCORE: {score}</p>
+                <p className="text-lg">FINAL SCORE: {score}</p>
                 <button
                   className="modal-btn outline-none text-med black"
                   onClick={closeModal}
@@ -37,9 +37,9 @@ function Modal({ score, display, type, closeModal }) {
                 </button>
               </>
             ) : type === "correct" ? (
-              <h2 className="modal-heading text-lg">CORRECT!</h2>
+              <h2 className="text-lg">CORRECT!</h2>
             ) : (
-              <h2 className="modal-heading text-lg">INCORRECT!</h2>
+              <h2 className="text-lg">INCORRECT!</h2>
             )}
           </div>
         </motion.div>

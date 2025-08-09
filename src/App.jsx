@@ -11,9 +11,11 @@ import Stats from "./pages/Stats.jsx";
 import Contact from "./pages/Contact.jsx";
 import Modal from "./components/Modal.jsx";
 import Navbar from "./components/Navbar.jsx";
+import Example from "./components/Example.jsx";
 
 function App() {
   const [initialStart, setInitialStart] = useState(false);
+  const [exampleNum, setExampleNum] = useState(1);
   const [infoMap, setInfoMap] = useState(getInfoMap());
   const [gameActive, setGameActive] = useState(false);
   const [score, setScore] = useState(0);
@@ -38,18 +40,23 @@ function App() {
   usePageTracking();
 
   useEffect(() => {
-    if (gameActive) {
+    if (gameActive && initialStart) {
       const interval = setInterval(() => {
-        setPoints((prevPoints) => {
-          if (prevPoints > 10) {
-            prevPoints -= 1;
-          }
-          return prevPoints;
-        });
+        setPoints((prevPoints) =>
+          prevPoints > 10 ? prevPoints - 1 : prevPoints
+        );
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [gameActive]);
+  }, [gameActive, initialStart]);
+
+  function handleStart() {
+    setInitialStart(true);
+  }
+
+  function changeExampleNum() {
+    setExampleNum((prev) => prev + 1);
+  }
 
   function handleChange(event) {
     setUserInput(event.target.value);
@@ -58,7 +65,7 @@ function App() {
   function handleKeyDown(event) {
     if (event.key === "Enter") {
       setGameActive(false);
-      setTotalPoints((prev) => (prev += 50 * diffLevel));
+      setTotalPoints((prev) => prev + 50 * diffLevel);
       if (userInput.trim().toLowerCase() === contents.answer) {
         setScore((prevScore) => prevScore + points);
         setNumCorrect((prevCorrect) => prevCorrect + 1);
@@ -67,16 +74,17 @@ function App() {
         setModalType("incorrect");
       }
       setNumAnswered((prevAnswered) => {
-        prevAnswered += 1;
-        setDiffLevel(getDiffLevel(prevAnswered));
-        setPoints(50 * getDiffLevel(prevAnswered));
-        if (prevAnswered === 10) {
+        const updated = prevAnswered + 1;
+        const newDiff = getDiffLevel(updated);
+        setDiffLevel(newDiff);
+        setPoints(50 * newDiff);
+        if (updated === 10) {
           setModalType("end");
           setModal(true);
         } else {
           nextQuestion(modalType);
         }
-        return prevAnswered;
+        return updated;
       });
     }
   }
@@ -106,7 +114,7 @@ function App() {
       resetGame();
     }
     if (modalType === "welcome") {
-      setInitialStart(true);
+      setModal(false);
     }
   }
 
@@ -125,14 +133,14 @@ function App() {
 
   return (
     <>
-      <Navbar main={location.pathname === "/"} />
+      <Navbar main={location.pathname === "/" && initialStart === true} />
       <Modal
         score={score}
         display={modal}
         type={modalType}
         closeModal={closeModal}
       />
-      {initialStart && (
+      {initialStart ? (
         <>
           <Routes>
             <Route
@@ -163,6 +171,14 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </>
+      ) : !modal ? (
+        <Example
+          handleStart={handleStart}
+          exampleNum={exampleNum}
+          changeExampleNum={changeExampleNum}
+        />
+      ) : (
+        ""
       )}
     </>
   );
