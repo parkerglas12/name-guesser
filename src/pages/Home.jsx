@@ -9,6 +9,7 @@ function Home({
   contents,
   userInput,
   gameActive,
+  answerQuestion,
   handleGameActive,
 }) {
   return (
@@ -20,6 +21,7 @@ function Home({
         contents={contents}
         curValue={userInput}
         gameActive={gameActive}
+        answerQuestion={answerQuestion}
         handleGameActive={handleGameActive}
       />
       <a

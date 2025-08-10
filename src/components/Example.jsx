@@ -7,13 +7,12 @@ function Example({ handleStart, exampleNum, changeExampleNum }) {
         <div className="example-container flex-center black">
           <h2 className="example-heading heading">Welcome To Name Guesser!</h2>
           <p className="text-med">
-            Name Guesser is a puzzle game where each question presents you with
-            two photos. Hidden within them, through clever symbolism, are clues
-            that lead to the name of a famous person. Sometimes the images hint
-            at parts of the name itself. Other times, they reference a role, a
-            song, or a piece of history tied to that person. Anything is fair
-            game — but let’s explore three common types of clues you’ll
-            encounter as you play!
+            Name Guesser is a puzzle game where each question shows you two
+            photos. Hidden in the photos are clues that point to the name of a
+            famous person. These clues could relate to the person's actual name,
+            a role they played, a song they composed, or even a historical event
+            associated with them. Let’s delve into three of the most common
+            types of clues you’ll encounter…
           </p>
           <button
             className="next-btn outline-none text-med black"
@@ -24,13 +23,12 @@ function Example({ handleStart, exampleNum, changeExampleNum }) {
         </div>
       ) : exampleNum === 2 ? (
         <div className="example-container flex-center black">
-          <h2 className="example-heading text-lg">Example Question #1</h2>
+          <h2 className="example-heading text-lg">Example #1: Name Parts</h2>
           <Photos url1="006.webp" url2="006(2).webp" />
           <p className="text-med">
-            One common form of symbolism in the game is when each photo stands
-            for part of the person’s name. In this example, the first picture
-            shows a dinner roll, and the second shows a jar of jelly. Put them
-            together and you get the name Jelly Roll.
+            Each photo shows part of the person’s name. Example: The first photo
+            shows a dinner roll. The second shows a jar of jelly. Put them
+            together and you get: <span className="bold">Jelly Roll</span>.
           </p>
           <button
             className="next-btn outline-none text-med black"
@@ -41,14 +39,13 @@ function Example({ handleStart, exampleNum, changeExampleNum }) {
         </div>
       ) : exampleNum === 3 ? (
         <div className="example-container flex-center black">
-          <h2 className="example-heading text-lg">Example Question #2</h2>
+          <h2 className="example-heading text-lg">Example #2: Famous Work</h2>
           <Photos url1="026.webp" url2="026(2).webp" />
           <p className="text-med">
-            Another common form of symbolism in the game connects photos to
-            famous roles actors have played or albums/songs musicians have
-            written. Here, the sinking ship represents Leonardo DiCaprio's
-            iconic role in Titanic, while the flower with the moon hints at his
-            part in Killers of the Flower Moon.
+            Each photo hints at roles, songs, or albums. Example: A sinking ship
+            stands for <span className="bold">Leonardo DiCaprio’s </span>{" "}
+            iconic role in Titanic. A flower with a moon hints at his part in
+            Killers of the Flower Moon.
           </p>
           <button
             className="next-btn outline-none text-med black"
@@ -59,14 +56,14 @@ function Example({ handleStart, exampleNum, changeExampleNum }) {
         </div>
       ) : (
         <div className="example-container flex-center black">
-          <h2 className="example-heading text-lg">Example Question #3</h2>
+          <h2 className="example-heading text-lg">Example #3: Blended Clues</h2>
           <Photos url1="024.webp" url2="024(2).webp" />
           <p className="text-med">
-            For this final example, we have what I call a “blended” question.
-            The first photo shows a strong arm, representing the name
-            “Armstrong,” while the second photo is the moon, symbolizing Neil
-            Armstrong’s historic first step on the lunar surface. Put together,
-            these photos point to Neil Armstrong.
+            One photo shows part of the name, and the other connects to
+            something the person is known for. Example: A strong arm represents
+            the name “Armstrong.” A photo of the moon points to Neil Armstrong’s
+            first step on the moon. When put together, you get:{" "}
+            <span className="bold">Neil Armstrong</span>.
           </p>
           <button
             className="next-btn outline-none text-med black"

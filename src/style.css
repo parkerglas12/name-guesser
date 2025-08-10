@@ -126,11 +126,22 @@ button {
   transform: scale(1.05);
 }
 
+.input-container {
+  flex-direction: column;
+  width: clamp(300px, 75vw, 700px);
+}
+
 .input-container .main-input {
+  width: clamp(150px, 50vw, 300px);
   padding-bottom: 0.25rem;
   border-bottom: 0.2rem solid var(--black);
   border-radius: 0;
   caret-color: var(--black);
+}
+
+.input-container .submit-btn {
+  margin-left: 0.5rem;
+  padding: clamp(0.5rem, 2vh, 1rem) 1.25rem;
 }
 
 .input-container .input-content {
@@ -163,6 +174,11 @@ button {
 .example-container .example-heading,
 .example-container .text-med {
   margin-bottom: 1rem;
+}
+
+.example-container .text-med .bold {
+  font-weight: 700;
+  font-style: italic;
 }
 
 /* HOW TO & STATS CONTAINERS */
@@ -312,16 +328,6 @@ button {
   cursor: pointer;
   transform: scale(1.05);
   box-shadow: 0 0 1rem rgba(255, 255, 255, 0.85);
-}
-
-.modal-container .modal .close {
-  position: absolute;
-  top: 0;
-  right: max(1vw, 10px);
-}
-
-.modal-container .modal .close:hover {
-  cursor: pointer;
 }
 
 /* RESPONSIVE */

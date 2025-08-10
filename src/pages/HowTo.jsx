@@ -34,10 +34,11 @@ function HowTo() {
         </p>
       </div>
       <div className="grid-item">
-        <h2 className="text-md text-center">Just Hit Enter</h2>
+        <h2 className="text-md text-center">Enter Or Click</h2>
         <p className="text-sm">
-          Once you know the answer, press Enter to submit. If your cursor isn’t
-          active, click above the input box to start typing.
+          Once you know the answer, press the Enter/Return key or click the
+          Submit button. If the input isn’t active, click inside the box to
+          start typing.
         </p>
       </div>
       <div className="grid-item">

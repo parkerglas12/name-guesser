@@ -64,29 +64,33 @@ function App() {
 
   function handleKeyDown(event) {
     if (event.key === "Enter") {
-      setGameActive(false);
-      setTotalPoints((prev) => prev + 50 * diffLevel);
-      if (userInput.trim().toLowerCase() === contents.answer) {
-        setScore((prevScore) => prevScore + points);
-        setNumCorrect((prevCorrect) => prevCorrect + 1);
-        setModalType("correct");
-      } else {
-        setModalType("incorrect");
-      }
-      setNumAnswered((prevAnswered) => {
-        const updated = prevAnswered + 1;
-        const newDiff = getDiffLevel(updated);
-        setDiffLevel(newDiff);
-        setPoints(50 * newDiff);
-        if (updated === 10) {
-          setModalType("end");
-          setModal(true);
-        } else {
-          nextQuestion(modalType);
-        }
-        return updated;
-      });
+      answerQuestion();
     }
+  }
+
+  function answerQuestion() {
+    setGameActive(false);
+    setTotalPoints((prev) => prev + 50 * diffLevel);
+    if (userInput.trim().toLowerCase() === contents.answer) {
+      setScore((prevScore) => prevScore + points);
+      setNumCorrect((prevCorrect) => prevCorrect + 1);
+      setModalType("correct");
+    } else {
+      setModalType("incorrect");
+    }
+    setNumAnswered((prevAnswered) => {
+      const updated = prevAnswered + 1;
+      const newDiff = getDiffLevel(updated);
+      setDiffLevel(newDiff);
+      setPoints(50 * newDiff);
+      if (updated === 10) {
+        setModalType("end");
+        setModal(true);
+      } else {
+        nextQuestion(modalType);
+      }
+      return updated;
+    });
   }
 
   function handleGameActive() {
@@ -152,6 +156,7 @@ function App() {
                   contents={contents}
                   userInput={userInput}
                   gameActive={gameActive}
+                  answerQuestion={answerQuestion}
                   handleGameActive={handleGameActive}
                 />
               }

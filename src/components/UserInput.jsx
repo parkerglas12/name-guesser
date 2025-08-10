@@ -4,23 +4,32 @@ function UserInput({
   contents,
   curValue,
   gameActive,
+  answerQuestion,
   handleGameActive,
 }) {
   return (
-    <div className="input-container">
+    <div className="input-container flex-center">
       {gameActive ? (
         <>
-          <input
-            className="main-input outline-none text-center text-lg"
-            onChange={onChange}
-            onKeyDown={onKeyDown}
-            autoFocus
-            type="text"
-            maxLength="50"
-            value={curValue}
-            name="main-input"
-            autoComplete="off"
-          ></input>
+          <div>
+            <input
+              className="main-input outline-none text-center text-lg"
+              onChange={onChange}
+              onKeyDown={onKeyDown}
+              autoFocus
+              type="text"
+              maxLength="50"
+              value={curValue}
+              name="main-input"
+              autoComplete="off"
+            ></input>
+            <button
+              className="next-btn submit-btn outline-none text-med black"
+              onClick={answerQuestion}
+            >
+              Submit
+            </button>
+          </div>
           <div className="input-content flex-center text-sm">
             <h2>#{contents.question}</h2>
             <h2>{contents.difficulty}</h2>
