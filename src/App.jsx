@@ -19,6 +19,7 @@ function App() {
   const [infoMap, setInfoMap] = useState(getInfoMap());
   const [gameActive, setGameActive] = useState(false);
   const [score, setScore] = useState(0);
+  const [time, setTime] = useState(0);
   const [points, setPoints] = useState(50);
   const [totalPoints, setTotalPoints] = useState(0);
   const [numCorrect, setNumCorrect] = useState(0);
@@ -39,23 +40,27 @@ function App() {
   }, []);
   usePageTracking();
 
+  // USE EFFECTS
   useEffect(() => {
     if (gameActive && initialStart) {
+      const decrement = points / 30;
       const interval = setInterval(() => {
-        setPoints((prevPoints) =>
-          prevPoints > 10 ? prevPoints - 1 : prevPoints
-        );
+        setPoints((prevPoints) => prevPoints - decrement);
+        setTime((prevTime) => prevTime + 1);
       }, 1000);
       return () => clearInterval(interval);
     }
   }, [gameActive, initialStart]);
 
+  useEffect(() => {
+    if (time >= 30) {
+      answerQuestion();
+    }
+  }, [time]);
+
+  // FUNCTIONS
   function handleStart() {
     setInitialStart(true);
-  }
-
-  function changeExampleNum() {
-    setExampleNum((prev) => prev + 1);
   }
 
   function handleChange(event) {
@@ -68,11 +73,16 @@ function App() {
     }
   }
 
+  function changeExampleNum() {
+    setExampleNum((prev) => prev + 1);
+  }
+
   function answerQuestion() {
+    setTime(0);
     setGameActive(false);
     setTotalPoints((prev) => prev + 50 * diffLevel);
-    if (userInput.trim().toLowerCase() === contents.answer) {
-      setScore((prevScore) => prevScore + points);
+    if (contents.answers.includes(userInput.trim().toLowerCase())) {
+      setScore((prevScore) => prevScore + Math.round(points));
       setNumCorrect((prevCorrect) => prevCorrect + 1);
       setModalType("correct");
     } else {
@@ -125,6 +135,7 @@ function App() {
   function resetGame() {
     setUserInput("");
     setModalType("");
+    setTime(0);
     setScore(0);
     setPoints(50);
     setDiffLevel(1);
@@ -143,6 +154,8 @@ function App() {
         display={modal}
         type={modalType}
         closeModal={closeModal}
+        numCorrect={numCorrect}
+        numAnswered={numAnswered}
       />
       {initialStart ? (
         <>
@@ -153,6 +166,7 @@ function App() {
                 <Home
                   handleChange={handleChange}
                   handleKeyDown={handleKeyDown}
+                  time={time}
                   contents={contents}
                   userInput={userInput}
                   gameActive={gameActive}

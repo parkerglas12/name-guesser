@@ -1,6 +1,6 @@
 function Contact() {
   return (
-    <div className="grid-container contact-container">
+    <section className="grid-container contact-container">
       <h1 className="heading text-center">CONTACT ME</h1>
       <form
         name="contact"
@@ -14,7 +14,7 @@ function Contact() {
         <p style={{ display: "none" }}>
           Don’t fill this out if you’re human: <input name="bot-field" />
         </p>
-        <div className="contact-content">
+        <article className="contact-content">
           <h2 className="text-lg">What's On Your Mind?</h2>
           <label className="contact-label text-med" htmlFor="name">
             Name
@@ -53,9 +53,9 @@ function Contact() {
           <button className="submit-btn outline-none text-med black">
             Submit
           </button>
-        </div>
+        </article>
       </form>
-      <div className="grid-item about">
+      <article className="grid-item about">
         <h2 className="text-lg text-center">About Me & Help Wanted</h2>
         <p className="text-sm">
           Hi all, I’m Parker Glas. I’ve loved puzzles and strategy games for as
@@ -89,8 +89,8 @@ function Contact() {
         >
           Question Difficulty Form Link
         </a>
-      </div>
-    </div>
+      </article>
+    </section>
   );
 }
 

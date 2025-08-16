@@ -6,6 +6,7 @@ import UserInput from "../components/UserInput.jsx";
 function Home({
   handleChange,
   handleKeyDown,
+  time,
   contents,
   userInput,
   gameActive,
@@ -13,11 +14,12 @@ function Home({
   handleGameActive,
 }) {
   return (
-    <div className="game-container flex-center black">
+    <main className="game-container flex-center black">
       <Photos url1={contents.imgOne} url2={contents.imgTwo} />
       <UserInput
         onChange={handleChange}
         onKeyDown={handleKeyDown}
+        time={time}
         contents={contents}
         curValue={userInput}
         gameActive={gameActive}
@@ -31,7 +33,7 @@ function Home({
       >
         <FontAwesomeIcon icon={faLinkedin} size="3x" />
       </a>{" "}
-    </div>
+    </main>
   );
 }
 

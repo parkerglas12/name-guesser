@@ -3,10 +3,10 @@ import gameData from "../assets/game-data.json";
 
 // PERSON CLASS
 class Person {
-  constructor(imgOne, imgTwo, answer, difficulty, question) {
+  constructor(imgOne, imgTwo, answers, difficulty, question) {
     this.imgOne = imgOne;
     this.imgTwo = imgTwo;
-    this.answer = answer;
+    this.answers = answers;
     this.difficulty = difficulty;
     this.question = question;
   }
@@ -27,7 +27,7 @@ const info = new Map(
     new Person(
       `${entry.question}.webp`,
       `${entry.question}(2).webp`,
-      entry.answer,
+      entry.answers,
       entry.difficulty,
       entry.question
     ),

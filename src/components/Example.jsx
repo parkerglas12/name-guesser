@@ -4,25 +4,32 @@ function Example({ handleStart, exampleNum, changeExampleNum }) {
   return (
     <>
       {exampleNum === 1 ? (
-        <div className="example-container flex-center black">
+        <section className="example-container flex-center black">
           <h2 className="example-heading heading">Welcome To Name Guesser!</h2>
           <p className="text-med">
-            Name Guesser is a puzzle game where each question shows you two
-            photos. Hidden in the photos are clues that point to the name of a
-            famous person. These clues could relate to the person's actual name,
-            a role they played, a song they composed, or even a historical event
-            associated with them. Let’s delve into three of the most common
-            types of clues you’ll encounter…
+            Name Guesser is a puzzle game featuring 10 questions, with 30
+            seconds to answer each one. Each question presents you with two
+            photos, and hidden in the photos are clues that point to the name of
+            a famous person. Let's delve into three of the most common types of
+            clues you'll encounter…
           </p>
-          <button
-            className="next-btn outline-none text-med black"
-            onClick={changeExampleNum}
-          >
-            Continue
-          </button>
-        </div>
+          <div className="flex-center">
+            <button
+              className="next-btn outline-none text-med black"
+              onClick={changeExampleNum}
+            >
+              Continue
+            </button>
+            <button
+              className="skip-btn outline-none text-med black"
+              onClick={handleStart}
+            >
+              Skip Intro
+            </button>
+          </div>
+        </section>
       ) : exampleNum === 2 ? (
-        <div className="example-container flex-center black">
+        <section className="example-container flex-center black">
           <h2 className="example-heading text-lg">Example #1: Name Parts</h2>
           <Photos url1="006.webp" url2="006(2).webp" />
           <p className="text-med">
@@ -36,9 +43,9 @@ function Example({ handleStart, exampleNum, changeExampleNum }) {
           >
             Continue
           </button>
-        </div>
+        </section>
       ) : exampleNum === 3 ? (
-        <div className="example-container flex-center black">
+        <section className="example-container flex-center black">
           <h2 className="example-heading text-lg">Example #2: Famous Work</h2>
           <Photos url1="026.webp" url2="026(2).webp" />
           <p className="text-med">
@@ -53,9 +60,9 @@ function Example({ handleStart, exampleNum, changeExampleNum }) {
           >
             Continue
           </button>
-        </div>
+        </section>
       ) : (
-        <div className="example-container flex-center black">
+        <section className="example-container flex-center black">
           <h2 className="example-heading text-lg">Example #3: Blended Clues</h2>
           <Photos url1="024.webp" url2="024(2).webp" />
           <p className="text-med">
@@ -71,7 +78,7 @@ function Example({ handleStart, exampleNum, changeExampleNum }) {
           >
             Play Now!
           </button>
-        </div>
+        </section>
       )}
     </>
   );

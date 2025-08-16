@@ -6,6 +6,8 @@
   --black: #000;
   --gray: #6b7280;
   --gold: #f2c400;
+  --green: #2cca51;
+  --red: #d92e2e;
 }
 
 /* ALL */
@@ -14,7 +16,6 @@
   margin: 0;
   padding: 0;
   font-family: "Outfit", sans-serif;
-  font-weight: 600;
 }
 
 input,
@@ -46,18 +47,23 @@ button {
 
 .heading {
   font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 600;
+  text-wrap: balance;
 }
 
 .text-lg {
   font-size: clamp(1.25rem, 2vw, 1.8rem);
+  font-weight: 500;
 }
 
 .text-med {
   font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-weight: 400;
 }
 
 .text-sm {
   font-size: clamp(0.8rem, 1.05vw, 1rem);
+  font-weight: 300;
 }
 
 /* NAVBAR */
@@ -146,7 +152,11 @@ button {
 
 .input-container .input-content {
   gap: 1rem;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.input-container .input-content .red {
+  color: var(--red);
 }
 
 .next-btn {
@@ -168,6 +178,21 @@ button {
   width: clamp(300px, 75vw, 700px);
   margin: 0 auto;
   padding: 4vh 0;
+}
+
+.example-container .skip-btn {
+  margin-left: 1rem;
+  padding: 1rem 1.25rem;
+  background-color: var(--gray);
+  color: var(--white);
+  border-radius: 0.5rem;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.example-container .skip-btn:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  box-shadow: 0 0 1.25rem rgba(107, 114, 128, 0.9);
 }
 
 .example-container .images-container,
@@ -215,7 +240,6 @@ button {
 .contact-container .about .text-sm {
   margin: 0.5vw 0;
   color: var(--gray);
-  font-weight: 500;
   line-height: calc(1rem + min(0.5vh, 0.5vw));
 }
 
@@ -251,7 +275,6 @@ button {
   margin-bottom: 0.75rem;
   padding: 0.5rem 0.25rem;
   background-color: rgba(153, 153, 153, 0.3);
-  font-weight: 500;
   border-radius: 0.5rem;
 }
 
@@ -262,7 +285,7 @@ button {
 
 .contact-container .contact-content .submit-btn {
   margin-top: 1rem;
-  padding: 0.7rem 1.2rem;
+  padding: 0.85rem 1.25rem;
   background-color: var(--gold);
   border-radius: 0.5rem;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -289,7 +312,7 @@ button {
   gap: 0.75rem;
   position: relative;
   width: max(max(35vw, 35vh), 300px);
-  padding: clamp(1.5rem, 6vh, 2rem) 3vw;
+  padding: clamp(1rem, 6vh, 2rem) clamp(1rem, 3vw, 2rem);
   background-color: var(--gold);
   border-radius: 1rem;
   z-index: 1002;
@@ -297,20 +320,22 @@ button {
 }
 
 .modal-container .green {
-  background-color: #2cca51;
+  background-color: var(--green);
 }
 
 .modal-container .red {
-  background-color: #d92e2e;
+  background-color: var(--red);
 }
 
-.modal-container .small-modal {
+.modal-container .med-modal {
   width: auto;
   padding: max(1.5vh, 1.5rem) max(2.5vw, 1.5rem);
 }
 
-.modal-container .small-modal .text-lg {
-  letter-spacing: 0.15vw;
+.modal-container .small-modal {
+  width: auto;
+  padding: clamp(1rem, 2.5vw, 1.25rem) clamp(1.25rem, 5vw, 1.75rem);
+  border-radius: 0.75rem;
 }
 
 .modal-container .modal .heading {

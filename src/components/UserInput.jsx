@@ -1,6 +1,7 @@
 function UserInput({
   onChange,
   onKeyDown,
+  time,
   contents,
   curValue,
   gameActive,
@@ -31,6 +32,9 @@ function UserInput({
             </button>
           </div>
           <div className="input-content flex-center text-sm">
+            <h2>
+              Time: <span className="red">{30 - time}</span>
+            </h2>
             <h2>#{contents.question}</h2>
             <h2>{contents.difficulty}</h2>
           </div>

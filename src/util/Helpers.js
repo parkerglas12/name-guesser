@@ -13,7 +13,7 @@ export function getModalColor(type) {
 }
 
 export function getModalWidth(type) {
-  return type === "welcome" ? "" : "small-modal";
+  return type === "welcome" ? "" : type === "end" ? "med-modal" : "small-modal";
 }
 
 // GAME HELPERS

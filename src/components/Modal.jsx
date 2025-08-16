@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { getModalColor, getModalWidth, dropIn } from "../util/Helpers.js";
 
-function Modal({ score, display, type, closeModal }) {
+function Modal({ score, display, type, closeModal, numCorrect, numAnswered }) {
   return (
     <AnimatePresence>
       {display && (
@@ -31,7 +31,10 @@ function Modal({ score, display, type, closeModal }) {
               </>
             ) : type === "end" ? (
               <>
-                <p className="text-lg">FINAL SCORE: {score}</p>
+                <h2 className="text-lg">Final Score: {score} / 1300</h2>
+                <h2 className="text-med">
+                  Questions Final Tally: {numCorrect} / {numAnswered}
+                </h2>
                 <button
                   className="modal-btn outline-none text-med black"
                   onClick={closeModal}
