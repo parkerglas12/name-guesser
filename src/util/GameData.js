@@ -3,12 +3,13 @@ import gameData from "../assets/game-data.json";
 
 // PERSON CLASS
 class Person {
-  constructor(imgOne, imgTwo, answers, difficulty, question) {
+  constructor(imgOne, imgTwo, answers, difficulty, question, hints) {
     this.imgOne = imgOne;
     this.imgTwo = imgTwo;
     this.answers = answers;
     this.difficulty = difficulty;
     this.question = question;
+    this.hints = hints;
   }
 }
 
@@ -29,7 +30,8 @@ const info = new Map(
       `${entry.question}(2).webp`,
       entry.answers,
       entry.difficulty,
-      entry.question
+      entry.question,
+      entry.hints
     ),
   ])
 );

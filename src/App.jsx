@@ -11,7 +11,7 @@ import Stats from "./pages/Stats.jsx";
 import Contact from "./pages/Contact.jsx";
 import Modal from "./components/Modal.jsx";
 import Navbar from "./components/Navbar.jsx";
-import Example from "./components/Example.jsx";
+import Examples from "./components/Examples.jsx";
 
 function App() {
   const [initialStart, setInitialStart] = useState(false);
@@ -191,7 +191,7 @@ function App() {
           </Routes>
         </>
       ) : !modal ? (
-        <Example
+        <Examples
           handleStart={handleStart}
           exampleNum={exampleNum}
           changeExampleNum={changeExampleNum}

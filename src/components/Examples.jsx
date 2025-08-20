@@ -1,6 +1,6 @@
-import Photos from "../components/Photos.jsx";
+import Photos from "./Photos.jsx";
 
-function Example({ handleStart, exampleNum, changeExampleNum }) {
+function Examples({ handleStart, exampleNum, changeExampleNum }) {
   return (
     <>
       {exampleNum === 1 ? (
@@ -84,4 +84,4 @@ function Example({ handleStart, exampleNum, changeExampleNum }) {
   );
 }
 
-export default Example;
+export default Examples;

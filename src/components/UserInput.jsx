@@ -31,13 +31,17 @@ function UserInput({
               Submit
             </button>
           </div>
-          <div className="input-content flex-center text-sm">
-            <h2>
+          <div className="input-content flex-center">
+            <h2 className="text-med">
               Time: <span className="red">{30 - time}</span>
             </h2>
-            <h2>#{contents.question}</h2>
-            <h2>{contents.difficulty}</h2>
+            <h2 className="text-med">#{contents.question}</h2>
+            <h2 className="text-med">{contents.difficulty}</h2>
           </div>
+          <h2 className="hints text-med">
+            <span className="bold">Hints:</span> {contents.hints[0]},{" "}
+            {contents.hints[1]}
+          </h2>
         </>
       ) : (
         <button
